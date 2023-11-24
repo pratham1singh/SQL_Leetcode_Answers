@@ -1,0 +1,4 @@
+select activity_date as day, count(distinct user_id) as active_users  from Activity
+ where 
+ year(activity_date)='2019' and ((month(activity_date)='07' and day(activity_date)<=27 ) or (month(activity_date)='06' and day(activity_date)>=28 ))
+ group by activity_date;
