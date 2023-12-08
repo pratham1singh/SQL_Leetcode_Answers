@@ -1,0 +1,8 @@
+with table1 as(
+    select max(salary) as salary,departmentId from
+Employee group by departmentId
+)
+select Department.name as Department ,t1.name as Employee,t1.salary as Salary from (select Employee.name,Employee.salary,Employee.departmentId from Employee join table1
+on Employee.salary=table1.salary and Employee.departmentId=table1.departmentId) as t1
+join Department on t1.departmentId=Department.id
+
